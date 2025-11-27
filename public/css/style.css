@@ -9,6 +9,12 @@
   z-index: 1000;
   backdrop-filter: blur(10px);
 }
+.explore {
+  text-decoration: none;
+  color: #212121;
+  font-size: 1rem;
+  font-weight: 500;
+}
 
 .navbar-toggler {
   box-shadow: none;
@@ -813,9 +819,13 @@ label {
     width: 100%;
     padding: 10px 0;
   }
-
+  .explore {
+    position: absolute;
+    left: 70px;
+    font-size: 1.2rem;
+  }
   .logo {
-    margin-left: 10px;
+    margin-left: 5px;
     width: 28px;
     height: 28px;
   }

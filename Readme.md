@@ -66,4 +66,4 @@
 
 ## 📝 **Screenshot**
 
-    ![India_Explorer](https://github.com/krishkumar0204/India-Explorer/blob/cf7593c86bd0743b253552c1c631f910f16581ab/public/assests/India%20Explorer.png)
+## Made with ❤️ **Krish Kumar**

@@ -1,0 +1,30 @@
+<% layout("layouts/boilerplate.ejs") -%>
+<body>
+  <h4 class="offset-2 newHead mt-4 pt-4">Edit Review</h4>
+  <div class="offset-3 mt-4 pt-4">
+    <form
+      method="POST"
+      action="/explore/<%= id %>/reviews/<%= review._id %>?_method=PATCH"
+    >
+      <div class="mb-3 col-6">
+        <label for="comment">Comment:</label><br />
+        <input
+          type="text"
+          name="review[comment]"
+          value="<%= review.comment %>"
+          class="form-control"
+        /><br />
+
+        <label for="rating">Rating:</label><br />
+        <input
+          type="number"
+          name="review[rating]"
+          value="<%= review.rating %>"
+          class="form-control"
+        /><br />
+
+        <button type="submit" class="btn btn-primary mt-2">Update</button>
+      </div>
+    </form>
+  </div>
+</body>

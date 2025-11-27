@@ -1,0 +1,234 @@
+<% layout("layouts/boilerplate.ejs") -%>
+<body>
+  <div class="landing-container">
+    <!-- Hero Section -->
+    <section class="hero-section">
+      <div class="hero-content">
+        <h1 class="hero-title">Discover Incredible India</h1>
+        <p class="hero-subtitle">
+          Explore breathtaking destinations, rich culture, and unforgettable
+          experiences
+        </p>
+        <div class="cta-buttons">
+          <a href="/explore" class="btn-hero btn-hero-primary"
+            >Explore Places</a
+          >
+          <a href="/explore/new" class="btn-hero btn-hero-outline"
+            >Add New Place</a
+          >
+        </div>
+      </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats-section">
+      <div class="stats-grid">
+        <div class="stat-item">
+          <div class="stat-number">
+            <%= typeof explores !== 'undefined' && explores.length > 0 ?
+            explores.length : '50+' %>
+          </div>
+          <div class="stat-label">Amazing Places</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">1000+</div>
+          <div class="stat-label">Happy Travelers</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">28</div>
+          <div class="stat-label">States Covered</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">24/7</div>
+          <div class="stat-label">Support</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Featured Places Section -->
+    <section class="featured-section">
+      <h2 class="section-title">Featured Destinations</h2>
+      <p class="section-subtitle">
+        Discover the most beautiful and popular tourist places across India
+      </p>
+
+      <div class="places-grid">
+        <% if (typeof explores !== 'undefined' && explores.length > 0) { %> <%
+        const featuredPlaces = explores.slice(0, 6); %> <%
+        featuredPlaces.forEach((explore, index) => { %>
+        <a href="/explore/<%= explore._id %>" class="place-card">
+          <img
+            src="<%= explore.image.url1 %>"
+            alt="<%= explore.title %>"
+            class="place-card-image"
+          />
+          <div class="place-card-content">
+            <h3 class="place-card-title"><%= explore.title %></h3>
+            <p class="place-card-brief"><%= explore.brief %></p>
+            <div class="place-card-location">
+              <i class="fas fa-map-marker-alt"></i>
+              <span><%= explore.location %>, <%= explore.country %></span>
+            </div>
+          </div>
+        </a>
+        <% }); %> <% } else { %>
+        <!-- Fallback cards if no data -->
+        <div class="place-card">
+          <div
+            class="place-card-image"
+            style="
+              background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              color: white;
+              font-size: 3rem;
+            "
+          >
+            <i class="fas fa-mountain"></i>
+          </div>
+          <div class="place-card-content">
+            <h3 class="place-card-title">Himalayan Treks</h3>
+            <p class="place-card-brief">
+              Explore the majestic mountains and breathtaking views
+            </p>
+            <div class="place-card-location">
+              <i class="fas fa-map-marker-alt"></i>
+              <span>Himachal Pradesh, India</span>
+            </div>
+          </div>
+        </div>
+        <div class="place-card">
+          <div
+            class="place-card-image"
+            style="
+              background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              color: white;
+              font-size: 3rem;
+            "
+          >
+            <i class="fas fa-monument"></i>
+          </div>
+          <div class="place-card-content">
+            <h3 class="place-card-title">Historical Monuments</h3>
+            <p class="place-card-brief">
+              Discover India's rich history and architectural marvels
+            </p>
+            <div class="place-card-location">
+              <i class="fas fa-map-marker-alt"></i>
+              <span>Delhi, India</span>
+            </div>
+          </div>
+        </div>
+        <div class="place-card">
+          <div
+            class="place-card-image"
+            style="
+              background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              color: white;
+              font-size: 3rem;
+            "
+          >
+            <i class="fas fa-water"></i>
+          </div>
+          <div class="place-card-content">
+            <h3 class="place-card-title">Beach Destinations</h3>
+            <p class="place-card-brief">
+              Relax on pristine beaches and enjoy tropical paradise
+            </p>
+            <div class="place-card-location">
+              <i class="fas fa-map-marker-alt"></i>
+              <span>Goa, India</span>
+            </div>
+          </div>
+        </div>
+        <% } %>
+      </div>
+
+      <div style="text-align: center; margin-top: 3rem">
+        <a
+          href="/explore"
+          class="btn-hero btn-hero-primary"
+          style="color: #667eea; background: white; border: 2px solid #667eea"
+        >
+          View All Places
+        </a>
+      </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features-section">
+      <h2 class="section-title">Why Choose India Explorer?</h2>
+      <p class="section-subtitle">
+        Your trusted companion for discovering India's hidden gems
+      </p>
+
+      <div class="features-grid">
+        <div class="feature-item">
+          <div class="feature-icon">
+            <i class="fas fa-map-marked-alt"></i>
+          </div>
+          <h3 class="feature-title">Comprehensive Guide</h3>
+          <p class="feature-description">
+            Detailed information about locations, best times to visit, and local
+            insights
+          </p>
+        </div>
+        <div class="feature-item">
+          <div class="feature-icon">
+            <i class="fas fa-images"></i>
+          </div>
+          <h3 class="feature-title">Stunning Photos</h3>
+          <p class="feature-description">
+            Browse through beautiful images to help you plan your perfect trip
+          </p>
+        </div>
+        <div class="feature-item">
+          <div class="feature-icon">
+            <i class="fas fa-comments"></i>
+          </div>
+          <h3 class="feature-title">Real Reviews</h3>
+          <p class="feature-description">
+            Read authentic reviews from fellow travelers and share your
+            experiences
+          </p>
+        </div>
+        <div class="feature-item">
+          <div class="feature-icon">
+            <i class="fas fa-plus-circle"></i>
+          </div>
+          <h3 class="feature-title">Contribute</h3>
+          <p class="feature-description">
+            Add new places and help others discover amazing destinations
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+      <div class="cta-content">
+        <h2 class="cta-title">Ready to Start Your Adventure?</h2>
+        <p class="cta-text">
+          Join thousands of travelers exploring the incredible diversity of
+          India
+        </p>
+        <div class="cta-buttons">
+          <a
+            href="/explore"
+            class="btn-hero btn-hero-primary"
+            style="background: white; color: #667eea; border: 2px solid white"
+          >
+            Start Exploring
+          </a>
+        </div>
+      </div>
+    </section>
+  </div>
+</body>

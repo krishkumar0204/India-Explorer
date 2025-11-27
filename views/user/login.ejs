@@ -1,0 +1,21 @@
+<% layout("layouts/boilerplate.ejs") -%>
+
+<body>
+  <div class="auth-container">
+    <h3 class="auth-title">Login to India Explorer</h3>
+
+    <form method="POST" action="" class="needs-validation auth-form" novalidate>
+      <label for="username" class="form-label">Username</label>
+      <input type="text" name="username" class="form-control" required />
+      <div class="invalid-feedback">Please Enter username</div>
+
+      <label for="password" class="form-label mt-3">Password</label>
+      <input type="password" name="password" class="form-control" required />
+      <div class="invalid-feedback">Please Enter Password</div>
+
+      <button type="submit" class="btn btn-primary mt-4 auth-btn">
+        Log In
+      </button>
+    </form>
+  </div>
+</body>

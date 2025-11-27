@@ -1,0 +1,66 @@
+<script>
+  require("dotenv").config();
+</script>
+<nav class="navbar navbar-expand-md sticky-top border-bottom">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="/explore"
+      ><img src="/assests/location.png" class="logo" />Explore</a
+    >
+
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarNavAltMarkup"
+      aria-controls="navbarNavAltMarkup"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <!-- Desktop search: hidden on extra-small screens -->
+    <div class="navbar-nav d-none d-sm-flex">
+      <form method="get" action="/search" class="searchForm">
+        <input
+          type="search"
+          placeholder="Search Places..."
+          class="form-control inputForm"
+          name="q"
+          value="<%= typeof query !== 'undefined' ? query : '' %>"
+        />
+        <button type="submit" class="btn btn-success">
+          <i class="fa-solid fa-magnifying-glass"></i>
+        </button>
+      </form>
+    </div>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="d-flex d-sm-none w-100 mb-2">
+        <form method="get" action="/search" class="searchForm w-100">
+          <input
+            type="search"
+            placeholder="search places..."
+            class="form-control inputForm"
+            name="q"
+            value="<%= typeof query !== 'undefined' ? query : '' %>"
+          />
+          <button type="submit" class="btn btn-success">
+            <i class="fa-solid fa-magnifying-glass"></i>
+          </button>
+        </form>
+      </div>
+      <% if(currUser && currUser.username === process.env.USER) {%>
+      <div class="navbar-nav ms-auto">
+        <a class="nav-link" href="/explore/new">Add Places</a>
+      </div>
+      <%}%>
+      <div class="navbar-nav user-container">
+        <% if(!currUser) { %>
+        <a href="/signup" class="nav-link">Sign up</a>
+        <a href="/login" class="nav-link">Log in</a> <% } %> <%if (currUser) {
+        %>
+        <a href="/logout" class="nav-link">Log out </a>
+        <%}%>
+      </div>
+    </div>
+  </div>
+</nav>

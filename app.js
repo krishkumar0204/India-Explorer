@@ -126,7 +126,7 @@ app.use((err, req, res, next) => {
   res.status(statusCode).render("error.ejs", { message });
 });
 
-let PORT = process.env.PORT || 4000;
+let PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
   console.log(`Server is listening at http://localhost:${PORT}`);
 });

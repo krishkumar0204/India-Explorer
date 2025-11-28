@@ -820,8 +820,7 @@ label {
     padding: 10px 0;
   }
   .explore {
-    position: absolute;
-    left: 70px;
+    margin-left: -150px;
     font-size: 1.2rem;
   }
   .logo {
@@ -841,7 +840,9 @@ label {
   .inputForm {
     width: 40% !important;
     height: 50px !important;
-    font-size: 16px;
+  }
+  .inputForm::placeholder {
+    font-size: 1.25rem;
   }
 
   /* Index Page */
